@@ -23,12 +23,14 @@ class ReservationController extends Controller
             'result' => 'All Reservations',
         ]); */
         return response()->json([
-            'result' => [
+            'status' => 1,
+            'message' => 'Reservations fetched successfully',
+            'data' => [
                 'checkinToday' => $this->reservationRepository->getTodaysCheckin($this->r),
                 'checkoutToday' => $this->reservationRepository->getTodaysCheckout($this->r),
                 'currentlyHosting' => $this->reservationRepository->getCurrentlyHosting($this->r),
             ],
-        ]);
+        ], 200);
     }
 
     /**
