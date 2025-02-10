@@ -17,4 +17,5 @@ Route::controller(RegisterController::class)->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('reservations', ReservationController::class);
+    Route::resource('rooms', RoomController::class);
 });

@@ -10,8 +10,8 @@ class RoomRepository extends BaseRepository
     protected $model;
     public function __construct(Room $model)
     {
-        $this->model = $model;
-        //$this->model = DB::table('services');
+        //$this->model = $model;
+        $this->model = DB::table('rooms');
     }
 /*
     public function all()

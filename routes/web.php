@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Host\HostController;
 use App\Http\Controllers\Reservation\ReservationController;
+use App\Http\Controllers\Room\RoomController;
 
 Route::get('/', function () {
     return response()->json([
@@ -29,4 +30,10 @@ Route::get('/', function () {
 /* Route::group(['prefix' => 'reservations'], function () {
     Route::resource('/', ReservationController::class);
 }); */
-Route::resource('/reservations', ReservationController::class);
+/* Route::resource('/reservations', ReservationController::class);
+Route::resource('/rooms', RoomController::class); */
+Route::middleware('auth:sanctum')->group(function () {
+    Route::resource('reservations', ReservationController::class);
+    Route::resource('rooms', RoomController::class);
+});
+
